@@ -1,0 +1,6 @@
+﻿montecarlo.canvas2
+==================
+
+.. currentmodule:: montecarlo
+
+.. autofunction:: canvas2
