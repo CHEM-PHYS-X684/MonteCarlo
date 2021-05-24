@@ -155,15 +155,79 @@
            <div itemprop="articleBody">
             
   <h1>Source code for montecarlo.montecarlo</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+<div class="viewcode-block" id="SpinConfig"><a class="viewcode-back" href="../../index.html#montecarlo.SpinConfig">[docs]</a><span class="k">class</span> <span class="nc">SpinConfig</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Base class for different types of spin configurations (i.e., 1D, 2D, etc)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; Why are you instantiating this?</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="SpinConfig1D"><a class="viewcode-back" href="../../index.html#montecarlo.SpinConfig1D">[docs]</a><span class="k">class</span> <span class="nc">SpinConfig1D</span><span class="p">(</span><span class="n">SpinConfig</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    1-D spin configuration</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">pbc</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize instance</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        N   : Int, default: 10</span>
+<span class="sd">            Number of sites</span>
+<span class="sd">        pbc : bool, default: true</span>
+<span class="sd">            Should we use periodic boundary conditions?</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        &quot;&quot;&quot;</span>    
+        <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">N</span> <span class="o">=</span> <span class="n">N</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pbc</span> <span class="o">=</span> <span class="n">pbc</span>
+
+<div class="viewcode-block" id="SpinConfig1D.initialize"><a class="viewcode-back" href="../../index.html#montecarlo.SpinConfig1D.initialize">[docs]</a>    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">M</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize spin configuration with specified magnetization</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        M   : Int, default: 0</span>
+<span class="sd">            Total number of spin up sites </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">N</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span> 
+        <span class="n">randomlist</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">M</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">randomlist</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">)</span></div></div>
+
+
+
+
+
+<div class="viewcode-block" id="tmp"><a class="viewcode-back" href="../../index.html#montecarlo.tmp">[docs]</a><span class="k">class</span> <span class="nc">tmp</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    test class</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="tmp.__init__"><a class="viewcode-back" href="../../autosummary/montecarlo.tmp.html#montecarlo.tmp.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span></div>
+<div class="viewcode-block" id="tmp.print"><a class="viewcode-back" href="../../index.html#montecarlo.tmp.print">[docs]</a>    <span class="k">def</span> <span class="nf">print</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">a</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        print for tmp class</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span></div></div>
+
+<span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">montecarlo.py</span>
 <span class="sd">Introduction to the Monte Carlo method</span>
 
 <span class="sd">Handles the primary functions</span>
 <span class="sd">&quot;&quot;&quot;</span>
-
-
-<div class="viewcode-block" id="canvas2"><a class="viewcode-back" href="../../autosummary/montecarlo.canvas2.html#montecarlo.canvas2">[docs]</a><span class="k">def</span> <span class="nf">canvas2</span><span class="p">(</span><span class="n">with_attribution</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="viewcode-block" id="canvas2"><a class="viewcode-back" href="../../index.html#montecarlo.canvas2">[docs]</a><span class="k">def</span> <span class="nf">canvas2</span><span class="p">(</span><span class="n">with_attribution</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Placeholder function to show example docstring (NumPy format)</span>
 
@@ -185,7 +249,7 @@
         <span class="n">quote</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n\t</span><span class="s2">- Adapted from Henry David Thoreau&quot;</span>
     <span class="k">return</span> <span class="n">quote</span></div>
 
-<div class="viewcode-block" id="canvas"><a class="viewcode-back" href="../../autosummary/montecarlo.canvas.html#montecarlo.canvas">[docs]</a><span class="k">def</span> <span class="nf">canvas</span><span class="p">(</span><span class="n">with_attribution</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="viewcode-block" id="canvas"><a class="viewcode-back" href="../../index.html#montecarlo.canvas">[docs]</a><span class="k">def</span> <span class="nf">canvas</span><span class="p">(</span><span class="n">with_attribution</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Placeholder function to show example docstring (NumPy format)</span>
 
@@ -207,7 +271,7 @@
         <span class="n">quote</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n\t</span><span class="s2">- Adapted from Henry David Thoreau&quot;</span>
     <span class="k">return</span> <span class="n">quote</span></div>
 
-<div class="viewcode-block" id="testa"><a class="viewcode-back" href="../../autosummary/montecarlo.testa.html#montecarlo.testa">[docs]</a><span class="k">def</span> <span class="nf">testa</span><span class="p">():</span>
+<div class="viewcode-block" id="testa"><a class="viewcode-back" href="../../index.html#montecarlo.testa">[docs]</a><span class="k">def</span> <span class="nf">testa</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This is just a test to see if I can do LaTeX</span>
 
