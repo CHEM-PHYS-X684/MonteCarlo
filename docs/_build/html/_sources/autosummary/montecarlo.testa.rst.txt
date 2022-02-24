@@ -1,6 +1,0 @@
-﻿montecarlo.testa
-================
-
-.. currentmodule:: montecarlo
-
-.. autofunction:: testa

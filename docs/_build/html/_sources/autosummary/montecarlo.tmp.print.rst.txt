@@ -1,6 +1,0 @@
-﻿montecarlo.tmp.print
-====================
-
-.. currentmodule:: montecarlo
-
-.. automethod:: tmp.print
