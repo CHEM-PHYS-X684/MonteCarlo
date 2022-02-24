@@ -1,0 +1,27 @@
+﻿montecarlo.IsingHamiltonian1D
+=============================
+
+.. currentmodule:: montecarlo
+
+.. autoclass:: IsingHamiltonian1D
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~IsingHamiltonian1D.__init__
+      ~IsingHamiltonian1D.compute_average_values
+      ~IsingHamiltonian1D.delta_e_for_flip
+      ~IsingHamiltonian1D.delta_e_for_flip_slow
+      ~IsingHamiltonian1D.energy
+      ~IsingHamiltonian1D.metropolis_sweep
+   
+   
+
+   
+   
+   

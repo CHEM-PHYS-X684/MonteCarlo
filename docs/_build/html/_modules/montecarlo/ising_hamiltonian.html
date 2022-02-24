@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>montecarlo.ising_hamiltonian &mdash; MonteCarlo  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> MonteCarlo
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">API Documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">MonteCarlo</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      <li>montecarlo.ising_hamiltonian</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for montecarlo.ising_hamiltonian</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">numpy.testing</span> <span class="kn">import</span> <span class="n">assert_almost_equal</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">copy</span> <span class="k">as</span> <span class="nn">cp</span>
+        
+        
+<div class="viewcode-block" id="IsingHamiltonian1D"><a class="viewcode-back" href="../../autosummary/montecarlo.IsingHamiltonian1D.html#montecarlo.IsingHamiltonian1D">[docs]</a><span class="k">class</span> <span class="nc">IsingHamiltonian1D</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Class for 1D Hamiltonian</span>
+<span class="sd">        </span>
+<span class="sd">        .. math::</span>
+<span class="sd">            H = -J\\sum_{\\left&lt;ij\\right&gt;} \\sigma_i\\sigma_j + \\mu\\sigma_i</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="IsingHamiltonian1D.__init__"><a class="viewcode-back" href="../../autosummary/montecarlo.IsingHamiltonian1D.html#montecarlo.IsingHamiltonian1D.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">J</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">pbc</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Constructor </span>
+<span class="sd">    </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        J: float, optional</span>
+<span class="sd">            Strength of coupling</span>
+<span class="sd">        mu: float, optional</span>
+<span class="sd">            Chemical potential </span>
+<span class="sd">        pbc: bool, optional, default=true</span>
+<span class="sd">            Do PBC?</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">J</span> <span class="o">=</span> <span class="n">J</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mu</span> <span class="o">=</span> <span class="n">mu</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pbc</span> <span class="o">=</span> <span class="n">pbc</span></div>
+
+    <span class="k">def</span> <span class="nf">energy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Compute energy of configuration, `config` </span>
+<span class="sd">            </span>
+<span class="sd">            .. math::</span>
+<span class="sd">                E = \\left&lt;\\hat{H}\\right&gt; </span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        config   : SpinConfig1D</span>
+<span class="sd">            input configuration </span>
+<span class="sd">        </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        energy  : float</span>
+<span class="sd">            Energy of the input configuration</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">e</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">config</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">config</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]:</span>
+                <span class="n">e</span> <span class="o">-=</span> <span class="bp">self</span><span class="o">.</span><span class="n">J</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">e</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">J</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">pbc</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">config</span><span class="p">[</span><span class="n">config</span><span class="o">.</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">config</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+                <span class="n">e</span> <span class="o">-=</span> <span class="bp">self</span><span class="o">.</span><span class="n">J</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">e</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">J</span>
+       
+        <span class="n">e</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mu</span> <span class="o">*</span> <span class="n">config</span><span class="o">.</span><span class="n">get_magnetization</span><span class="p">()</span>
+        
+        <span class="k">return</span> <span class="n">e</span>
+
+    <span class="k">def</span> <span class="nf">delta_e_for_flip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Compute the energy change incurred if one were to flip the spin at site i</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        i        : int</span>
+<span class="sd">            Index of site to flip</span>
+<span class="sd">        config   : :class:`SpinConfig1D`</span>
+<span class="sd">            input configuration </span>
+<span class="sd">        </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        energy  : list[SpinConfig1D, float]</span>
+<span class="sd">            Returns both the flipped config and the energy change</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">config_trial</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">config</span><span class="p">)</span> 
+        <span class="n">config_trial</span><span class="o">.</span><span class="n">flip_site</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        
+        
+        <span class="n">del_e</span> <span class="o">=</span> <span class="mf">0.0</span>
+        
+        <span class="c1"># assume PBC</span>
+        <span class="n">iright</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="n">config</span><span class="o">.</span><span class="n">N</span>
+        <span class="n">ileft</span>  <span class="o">=</span> <span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="n">config</span><span class="o">.</span><span class="n">N</span>
+        <span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="n">ileft</span><span class="p">]</span> <span class="o">==</span> <span class="n">config</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="n">iright</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="n">ileft</span><span class="p">]</span> <span class="o">==</span> <span class="n">config</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+                <span class="n">del_e</span> <span class="o">=</span> <span class="mf">4.0</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">J</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">del_e</span> <span class="o">=</span> <span class="o">-</span><span class="mf">4.0</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">J</span>
+                
+        <span class="n">del_e</span> <span class="o">+=</span> <span class="mi">2</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">mu</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">config</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+
+        <span class="k">return</span> <span class="n">config_trial</span><span class="p">,</span> <span class="n">del_e</span>
+    
+    <span class="k">def</span> <span class="nf">delta_e_for_flip_slow</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Compute the energy change incurred if one were to flip the spin at site i (slow)</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        i        : int</span>
+<span class="sd">            Index of site to flip</span>
+<span class="sd">        config   : :class:`SpinConfig1D`</span>
+<span class="sd">            input configuration </span>
+<span class="sd">        </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        energy  : list[SpinConfig1D, float]</span>
+<span class="sd">            Returns both the flipped config and the energy change</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">config_trial</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">config</span><span class="p">)</span> 
+        <span class="n">config_trial</span><span class="o">.</span><span class="n">flip_site</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="n">config_trial</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">expectation_value</span><span class="p">(</span><span class="n">config_trial</span><span class="p">)</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">expectation_value</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+
+
+        
+    <span class="k">def</span> <span class="nf">metropolis_sweep</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">conf</span><span class="p">,</span> <span class="n">T</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Perform a single sweep through all the sites and return updated configuration</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        conf   : :class:`SpinConfig1D`</span>
+<span class="sd">            input configuration </span>
+<span class="sd">        T      : int</span>
+<span class="sd">            Temperature</span>
+<span class="sd">        </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        conf  : :class:`SpinConfig1D`</span>
+<span class="sd">            Returns updated config</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">for</span> <span class="n">site_i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">conf</span><span class="o">.</span><span class="n">N</span><span class="p">):</span>
+       
+            <span class="c1"># new_conf, delta_e = ham.delta_e_for_flip(site_i, conf)      </span>
+            <span class="n">delta_e</span> <span class="o">=</span> <span class="mf">0.0</span>
+        
+            <span class="c1"># assume PBC</span>
+            <span class="n">iright</span> <span class="o">=</span> <span class="p">(</span><span class="n">site_i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="n">conf</span><span class="o">.</span><span class="n">N</span>
+            <span class="n">ileft</span>  <span class="o">=</span> <span class="p">(</span><span class="n">site_i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="n">conf</span><span class="o">.</span><span class="n">N</span>
+            <span class="k">if</span> <span class="n">conf</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="n">ileft</span><span class="p">]</span> <span class="o">==</span> <span class="n">conf</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="n">iright</span><span class="p">]:</span>
+                <span class="k">if</span> <span class="n">conf</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="n">ileft</span><span class="p">]</span> <span class="o">==</span> <span class="n">conf</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="n">site_i</span><span class="p">]:</span>
+                    <span class="n">delta_e</span> <span class="o">=</span> <span class="mf">4.0</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">J</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">delta_e</span> <span class="o">=</span> <span class="o">-</span><span class="mf">4.0</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">J</span>
+                
+            <span class="n">delta_e</span> <span class="o">+=</span> <span class="mi">2</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">mu</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">conf</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="n">site_i</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+            <span class="c1"># prob_trans = 1.0 # probability of transitioning</span>
+            <span class="n">accept</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="k">if</span> <span class="n">delta_e</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">:</span>
+                <span class="c1"># prob_trans = np.exp(-delta_e/T)</span>
+                <span class="n">rand_comp</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+                <span class="k">if</span> <span class="n">rand_comp</span> <span class="o">&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">delta_e</span><span class="o">/</span><span class="n">T</span><span class="p">):</span>
+                    <span class="n">accept</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="c1">#print(&quot;nick: %12.8f %12.8f %12s&quot; %(rand_comp, np.exp(-delta_e/T), accept))</span>
+            <span class="k">if</span> <span class="n">accept</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">conf</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="n">site_i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">conf</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="n">site_i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">conf</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="n">site_i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="c1">#print(&quot;%12s %12s deltaE = %12.8f prob = %12.8f&quot; %(conf, accept, delta_e, np.exp(-delta_e/T)))</span>
+        <span class="k">return</span> <span class="n">conf</span>
+
+    
+    <span class="k">def</span> <span class="nf">compute_average_values</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">conf</span><span class="p">,</span> <span class="n">T</span><span class="p">):</span>
+        <span class="n">E</span>  <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">M</span>  <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">Z</span>  <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">EE</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">MM</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">conf</span><span class="o">.</span><span class="n">n_dim</span><span class="p">):</span>
+            <span class="n">conf</span><span class="o">.</span><span class="n">set_int_config</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="n">Ei</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">energy</span><span class="p">(</span><span class="n">conf</span><span class="p">)</span>
+            <span class="n">Zi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">Ei</span><span class="o">/</span><span class="n">T</span><span class="p">)</span>
+            <span class="n">E</span> <span class="o">+=</span> <span class="n">Ei</span><span class="o">*</span><span class="n">Zi</span>
+            <span class="n">EE</span> <span class="o">+=</span> <span class="n">Ei</span><span class="o">*</span><span class="n">Ei</span><span class="o">*</span><span class="n">Zi</span>
+            <span class="n">Mi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">conf</span><span class="o">.</span><span class="n">config</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">M</span> <span class="o">+=</span> <span class="n">Mi</span><span class="o">*</span><span class="n">Zi</span>
+            <span class="n">MM</span> <span class="o">+=</span> <span class="n">Mi</span><span class="o">*</span><span class="n">Mi</span><span class="o">*</span><span class="n">Zi</span>
+            <span class="n">Z</span> <span class="o">+=</span> <span class="n">Zi</span>
+        
+        <span class="n">E</span> <span class="o">=</span> <span class="n">E</span><span class="o">/</span><span class="n">Z</span>
+        <span class="n">M</span> <span class="o">=</span> <span class="n">M</span><span class="o">/</span><span class="n">Z</span>
+        <span class="n">EE</span> <span class="o">=</span> <span class="n">EE</span><span class="o">/</span><span class="n">Z</span>
+        <span class="n">MM</span> <span class="o">=</span> <span class="n">MM</span><span class="o">/</span><span class="n">Z</span>
+        
+        <span class="n">HC</span> <span class="o">=</span> <span class="p">(</span><span class="n">EE</span> <span class="o">-</span> <span class="n">E</span><span class="o">*</span><span class="n">E</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">T</span><span class="o">*</span><span class="n">T</span><span class="p">)</span>
+        <span class="n">MS</span> <span class="o">=</span> <span class="p">(</span><span class="n">MM</span> <span class="o">-</span> <span class="n">M</span><span class="o">*</span><span class="n">M</span><span class="p">)</span><span class="o">/</span><span class="n">T</span>
+        <span class="k">return</span> <span class="n">E</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">HC</span><span class="p">,</span> <span class="n">MS</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Nick. Project structure based on the Computational Molecular Science Python Cookiecutter version 1.5.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

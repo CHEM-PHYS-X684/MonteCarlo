@@ -1,0 +1,29 @@
+﻿montecarlo.SpinConfig1D
+=======================
+
+.. currentmodule:: montecarlo
+
+.. autoclass:: SpinConfig1D
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~SpinConfig1D.__init__
+      ~SpinConfig1D.flip_site
+      ~SpinConfig1D.get_magnetization
+      ~SpinConfig1D.get_rand_config
+      ~SpinConfig1D.initialize
+      ~SpinConfig1D.set_config
+      ~SpinConfig1D.set_int_config
+      ~SpinConfig1D.set_rand_config
+   
+   
+
+   
+   
+   
