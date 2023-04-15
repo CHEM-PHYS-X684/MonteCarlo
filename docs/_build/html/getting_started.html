@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Getting Started &mdash; MonteCarlo  documentation</title>
@@ -12,9 +12,8 @@
   <![endif]-->
   
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -28,11 +27,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> MonteCarlo
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            MonteCarlo
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -74,8 +77,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Getting Started</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Getting Started</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/getting_started.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -86,10 +89,10 @@
            <div itemprop="articleBody">
              
   <section id="getting-started">
-<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline"></a></h1>
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this heading"></a></h1>
 <p>This page details how to get started with MonteCarlo.</p>
 <section id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline"></a></h2>
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
 <p>To install MonteCarlo, you will need an environment with the following packages:</p>
 <ul class="simple">
 <li><p>Python &gt;= 3.7</p></li>
@@ -102,9 +105,9 @@
 </div>
 </section>
 <section id="theory">
-<h2>Theory<a class="headerlink" href="#theory" title="Permalink to this headline"></a></h2>
+<h2>Theory<a class="headerlink" href="#theory" title="Permalink to this heading"></a></h2>
 <section id="introduction-to-the-monte-carlo-method">
-<h3>Introduction to the Monte Carlo method<a class="headerlink" href="#introduction-to-the-monte-carlo-method" title="Permalink to this headline"></a></h3>
+<h3>Introduction to the Monte Carlo method<a class="headerlink" href="#introduction-to-the-monte-carlo-method" title="Permalink to this heading"></a></h3>
 <p>Start by defining the Gibbs distribution:
 <span class="math notranslate nohighlight">\(P(\alpha) = e^{-E(\alpha)/kT}\)</span>.
 this expression, defines the probability of observing a particular configuration of spins, <span class="math notranslate nohighlight">\(\alpha\)</span>.
@@ -113,7 +116,7 @@ where <cite>k</cite> is the Boltzmann constant, <span class="math notranslate no
 and <cite>T</cite> is the temperature in Kelvin.</p>
 </section>
 <section id="what-defines-the-energy-of-a-configuration-of-spins">
-<h3>What defines the energy of a configuration of spins?<a class="headerlink" href="#what-defines-the-energy-of-a-configuration-of-spins" title="Permalink to this headline"></a></h3>
+<h3>What defines the energy of a configuration of spins?<a class="headerlink" href="#what-defines-the-energy-of-a-configuration-of-spins" title="Permalink to this heading"></a></h3>
 <p>Given a configuration of spins (e.g., <span class="math notranslate nohighlight">\(\uparrow\downarrow\downarrow\uparrow\downarrow\)</span>) we can define the energy using what is referred to as an Ising Hamiltonian:</p>
 <p><span class="math notranslate nohighlight">\(\displaystyle\hat{H}' = \frac{\hat{H}}{k} = -\frac{J}{k}\sum_{&lt;ij&gt;} s_is_j + \tfrac{\mu}{k}\sum_i s_i,\)</span></p>
 <p>where, <span class="math notranslate nohighlight">\(s_i=1\)</span> if the <span class="math notranslate nohighlight">\(i^{th}\)</span> spin is <cite>up</cite> and <span class="math notranslate nohighlight">\(s_i=-1\)</span> if it is <cite>down</cite>, and the brackets <span class="math notranslate nohighlight">\(&lt;ij&gt;\)</span> indicate a sum over spins that are connected,
@@ -121,7 +124,7 @@ and <cite>J</cite> is a constant that determines the energy scale.
 The energy here has been divided by the Boltzmann constant to yield units of temperature.</p>
 </section>
 <section id="properties">
-<h3>Properties<a class="headerlink" href="#properties" title="Permalink to this headline"></a></h3>
+<h3>Properties<a class="headerlink" href="#properties" title="Permalink to this heading"></a></h3>
 <p>For any fixed state, <span class="math notranslate nohighlight">\(\alpha\)</span>, the <cite>magnetization</cite> (<cite>M</cite>) is proportional to the _excess_ number of spins pointing up or down while the energy is given by the
 Hamiltonian:</p>
 <p><span class="math notranslate nohighlight">\(M(\alpha) = N_{\text{up}}(\alpha) - N_{\text{down}}(\alpha)\)</span>.</p>
@@ -133,7 +136,7 @@ In fact, any average value can be obtained by adding up the value of an individu
 <p>This means that to obtain any average value (also known as an <cite>expectation value</cite>) computationally, we must compute the both the value and probability of all possible configurations. This becomes extremely expensive as the number of spins (<cite>N</cite>) increases.</p>
 </section>
 <section id="sampling">
-<h3>Sampling<a class="headerlink" href="#sampling" title="Permalink to this headline"></a></h3>
+<h3>Sampling<a class="headerlink" href="#sampling" title="Permalink to this heading"></a></h3>
 <p>These exact calculations pose a drastic problem from a practical perspective.
 As <cite>N</cite> becomes large it is evident that
 computations become a daunting task if calculated in this manner.
@@ -197,20 +200,30 @@ If the <span class="math notranslate nohighlight">\(\beta\)</span> is <em>higher
 </section>
 </section>
 <section id="examples">
-<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline"></a></h2>
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this heading"></a></h2>
 <section id="configuration-energy">
-<h3>Configuration Energy<a class="headerlink" href="#configuration-energy" title="Permalink to this headline"></a></h3>
-<p>Example for how to compute the energy for a single spin  configuration</p>
+<h3>Configuration Energy<a class="headerlink" href="#configuration-energy" title="Permalink to this heading"></a></h3>
+<p>Example for how to compute the energy for a single spin configuration for a 1D (nearest neighbor graph)</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 <span class="kn">import</span> <span class="nn">montecarlo</span>
 <span class="kn">import</span> <span class="nn">random</span>
 
+<span class="c1"># Define number of sites</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">8</span>
+
 <span class="c1"># Define configuration</span>
-<span class="n">conf</span> <span class="o">=</span> <span class="n">montecarlo</span><span class="o">.</span><span class="n">SpinConfig1D</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">conf</span> <span class="o">=</span> <span class="n">montecarlo</span><span class="o">.</span><span class="n">BitString</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="n">N</span><span class="p">)</span>
 <span class="n">conf</span><span class="o">.</span><span class="n">set_config</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-<span class="n">ham</span> <span class="o">=</span> <span class="n">montecarlo</span><span class="o">.</span><span class="n">IsingHamiltonian1D</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">.1</span><span class="p">)</span>
+
+<span class="c1"># Choose a J-coupling constant, `Jval`:</span>
+<span class="n">Jval</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="p">[</span><span class="mf">.1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span>
+<span class="n">J</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">J</span><span class="o">.</span><span class="n">append</span><span class="p">([((</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">N</span><span class="p">,</span> <span class="n">Jval</span><span class="p">),</span> <span class="p">((</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">N</span><span class="p">,</span> <span class="n">Jval</span><span class="p">)])</span>
+<span class="n">ham</span> <span class="o">=</span> <span class="n">montecarlo</span><span class="o">.</span><span class="n">IsingHamiltonian</span><span class="p">(</span><span class="n">J</span><span class="o">=</span><span class="n">J</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="n">mu</span><span class="p">)</span>
 
 <span class="n">Ei</span> <span class="o">=</span> <span class="n">ham</span><span class="o">.</span><span class="n">energy</span><span class="p">(</span><span class="n">conf</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; Energy of      &quot;</span><span class="p">,</span> <span class="n">conf</span><span class="o">.</span><span class="n">config</span><span class="p">,</span> <span class="s2">&quot; is &quot;</span><span class="p">,</span> <span class="n">Ei</span><span class="p">)</span>
@@ -231,7 +244,7 @@ If the <span class="math notranslate nohighlight">\(\beta\)</span> is <em>higher
 </div>
 </section>
 <section id="thermodynamic-for-temp-t">
-<h3>Thermodynamic for temp T<a class="headerlink" href="#thermodynamic-for-temp-t" title="Permalink to this headline"></a></h3>
+<h3>Thermodynamic for temp T<a class="headerlink" href="#thermodynamic-for-temp-t" title="Permalink to this heading"></a></h3>
 <p>Here, we compute the average energy, magnetization, magnetic susceptability, and heat capacity for a small 6 site lattice.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
@@ -240,12 +253,16 @@ If the <span class="math notranslate nohighlight">\(\beta\)</span> is <em>higher
 <span class="kn">import</span> <span class="nn">random</span>
 
 <span class="c1"># Define my hamiltonian values</span>
-<span class="n">ham</span><span class="o">.</span><span class="n">J</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span>
-<span class="n">ham</span><span class="o">.</span><span class="n">mu</span> <span class="o">=</span> <span class="mf">1.1</span>
-<span class="n">ham</span><span class="o">.</span><span class="n">pbc</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">Jval</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span>
+<span class="n">J</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="n">J</span><span class="o">.</span><span class="n">append</span><span class="p">([((</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">N</span><span class="p">,</span> <span class="n">Jval</span><span class="p">),</span> <span class="p">((</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">N</span><span class="p">,</span> <span class="n">Jval</span><span class="p">)])</span>
+<span class="n">ham</span> <span class="o">=</span> <span class="n">montecarlo</span><span class="o">.</span><span class="n">IsingHamiltonian</span><span class="p">(</span><span class="n">J</span><span class="o">=</span><span class="n">J</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="n">mu</span><span class="p">)</span>
 
 <span class="c1"># Define a new configuration instance for a 6-site lattice</span>
-<span class="n">conf</span> <span class="o">=</span> <span class="n">montecarlo</span><span class="o">.</span><span class="n">SpinConfig1D</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">conf</span> <span class="o">=</span> <span class="n">montecarlo</span><span class="o">.</span><span class="n">BitString</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="n">N</span><span class="p">)</span>
 
 <span class="c1"># Compute the average values for Temperature = 1</span>
 <span class="n">E</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">HC</span><span class="p">,</span> <span class="n">MS</span> <span class="o">=</span> <span class="n">ham</span><span class="o">.</span><span class="n">compute_average_values</span><span class="p">(</span><span class="n">conf</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
@@ -266,7 +283,7 @@ If the <span class="math notranslate nohighlight">\(\beta\)</span> is <em>higher
 </div>
 </section>
 <section id="plot-of-observables-vs-t">
-<h3>Plot of observables vs T<a class="headerlink" href="#plot-of-observables-vs-t" title="Permalink to this headline"></a></h3>
+<h3>Plot of observables vs T<a class="headerlink" href="#plot-of-observables-vs-t" title="Permalink to this heading"></a></h3>
 <p>At this point we have the ability to compute the average values of various quantities of a spin lattice at a given temperature.
 One is often interested in how these properties change as a function of Temperature.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># First initialize some empty lists to store our computed quantites</span>
@@ -276,29 +293,36 @@ One is often interested in how these properties change as a function of Temperat
 <span class="n">m2_list</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">T_list</span> <span class="o">=</span> <span class="p">[]</span>
 
-<span class="c1"># Now pick some values for our hamiltonian</span>
-<span class="n">ham</span><span class="o">.</span><span class="n">J</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
-<span class="n">ham</span><span class="o">.</span><span class="n">mu</span> <span class="o">=</span> <span class="mf">.1</span>
+<span class="c1"># Now pick some new values for our hamiltonian</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">Jval</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="p">[</span><span class="mf">.1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span>
+<span class="n">J</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="n">J</span><span class="o">.</span><span class="n">append</span><span class="p">([((</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">N</span><span class="p">,</span> <span class="n">Jval</span><span class="p">),</span> <span class="p">((</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">N</span><span class="p">,</span> <span class="n">Jval</span><span class="p">)])</span>
+<span class="n">ham</span> <span class="o">=</span> <span class="n">montecarlo</span><span class="o">.</span><span class="n">IsingHamiltonian</span><span class="p">(</span><span class="n">J</span><span class="o">=</span><span class="n">J</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="n">mu</span><span class="p">)</span>
 
-<span class="n">conf</span> <span class="o">=</span> <span class="n">montecarlo</span><span class="o">.</span><span class="n">SpinConfig1D</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">conf</span> <span class="o">=</span> <span class="n">montecarlo</span><span class="o">.</span><span class="n">BitString</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="n">N</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">Ti</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">):</span>
-    <span class="n">T</span> <span class="o">=</span> <span class="mf">.1</span><span class="o">*</span><span class="n">Ti</span>
+        <span class="n">T</span> <span class="o">=</span> <span class="mf">.1</span><span class="o">*</span><span class="n">Ti</span>
 
-    <span class="n">E</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">HC</span><span class="p">,</span> <span class="n">MS</span> <span class="o">=</span> <span class="n">ham</span><span class="o">.</span><span class="n">compute_average_values</span><span class="p">(</span><span class="n">conf</span><span class="p">,</span> <span class="n">T</span><span class="p">)</span>
+        <span class="n">E</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">HC</span><span class="p">,</span> <span class="n">MS</span> <span class="o">=</span> <span class="n">ham</span><span class="o">.</span><span class="n">compute_average_values</span><span class="p">(</span><span class="n">conf</span><span class="p">,</span> <span class="n">T</span><span class="p">)</span>
 
-    <span class="n">e_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">E</span><span class="p">)</span>
-    <span class="n">m_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
-    <span class="n">e2_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">HC</span><span class="p">)</span>
-    <span class="n">m2_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">MS</span><span class="p">)</span>
-    <span class="n">T_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+        <span class="n">e_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">E</span><span class="p">)</span>
+        <span class="n">m_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+        <span class="n">e2_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">HC</span><span class="p">)</span>
+        <span class="n">m2_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">MS</span><span class="p">)</span>
+        <span class="n">T_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
 
 
+<span class="nb">print</span><span class="p">(</span><span class="n">e_list</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T_list</span><span class="p">,</span> <span class="n">e_list</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;energy&quot;</span><span class="p">);</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T_list</span><span class="p">,</span> <span class="n">m_list</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;magnetization&quot;</span><span class="p">);</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T_list</span><span class="p">,</span> <span class="n">m2_list</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Susceptibility&quot;</span><span class="p">);</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T_list</span><span class="p">,</span> <span class="n">e2_list</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Heat Capacity&quot;</span><span class="p">);</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;prop_vs_T.pdf&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This should produce the following plot:</p>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Class Overview &mdash; MonteCarlo  documentation</title>
@@ -12,14 +12,13 @@
   <![endif]-->
   
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="montecarlo.SpinConfig1D" href="autosummary/montecarlo.SpinConfig1D.html" />
+    <link rel="next" title="montecarlo.BitString" href="autosummary/montecarlo.BitString.html" />
     <link rel="prev" title="Getting Started" href="getting_started.html" /> 
 </head>
 
@@ -28,11 +27,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> MonteCarlo
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            MonteCarlo
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -42,9 +45,8 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Class Overview</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="autosummary/montecarlo.SpinConfig1D.html">montecarlo.SpinConfig1D</a></li>
-<li class="toctree-l2"><a class="reference internal" href="autosummary/montecarlo.SpinConfig.html">montecarlo.SpinConfig</a></li>
-<li class="toctree-l2"><a class="reference internal" href="autosummary/montecarlo.IsingHamiltonian1D.html">montecarlo.IsingHamiltonian1D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/montecarlo.BitString.html">montecarlo.BitString</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/montecarlo.IsingHamiltonian.html">montecarlo.IsingHamiltonian</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#api-documentation">API Documentation</a></li>
@@ -63,8 +65,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Class Overview</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Class Overview</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/api.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -75,54 +77,30 @@
            <div itemprop="articleBody">
              
   <section id="class-overview">
-<h1>Class Overview<a class="headerlink" href="#class-overview" title="Permalink to this headline"></a></h1>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+<h1>Class Overview<a class="headerlink" href="#class-overview" title="Permalink to this heading"></a></h1>
+<table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="autosummary/montecarlo.SpinConfig1D.html#montecarlo.SpinConfig1D" title="montecarlo.SpinConfig1D"><code class="xref py py-obj docutils literal notranslate"><span class="pre">montecarlo.SpinConfig1D</span></code></a>([N, pbc])</p></td>
-<td><p>1-D spin configuration</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="autosummary/montecarlo.BitString.html#montecarlo.BitString" title="montecarlo.BitString"><code class="xref py py-obj docutils literal notranslate"><span class="pre">montecarlo.BitString</span></code></a>([N, pbc])</p></td>
+<td><p>Bit string for encoding a spin configuration</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="autosummary/montecarlo.SpinConfig.html#montecarlo.SpinConfig" title="montecarlo.SpinConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">montecarlo.SpinConfig</span></code></a>()</p></td>
-<td><p>Base class for different types of spin configurations (i.e., 1D, 2D, etc)</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="autosummary/montecarlo.IsingHamiltonian1D.html#montecarlo.IsingHamiltonian1D" title="montecarlo.IsingHamiltonian1D"><code class="xref py py-obj docutils literal notranslate"><span class="pre">montecarlo.IsingHamiltonian1D</span></code></a>([J, mu, pbc])</p></td>
-<td><p>Class for 1D Hamiltonian</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="autosummary/montecarlo.IsingHamiltonian.html#montecarlo.IsingHamiltonian" title="montecarlo.IsingHamiltonian"><code class="xref py py-obj docutils literal notranslate"><span class="pre">montecarlo.IsingHamiltonian</span></code></a>([J, mu])</p></td>
+<td><p>Class for an Ising Hamiltonian of arbitrary dimensionality</p></td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="api-documentation">
-<h1>API Documentation<a class="headerlink" href="#api-documentation" title="Permalink to this headline"></a></h1>
+<h1>API Documentation<a class="headerlink" href="#api-documentation" title="Permalink to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">montecarlo.</span></span><span class="sig-name descname"><span class="pre">SpinConfig</span></span><a class="reference internal" href="_modules/montecarlo/spin_config.html#SpinConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
-<dd><p>Base class for different types of spin configurations (i.e., 1D, 2D, etc)</p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">montecarlo.</span></span><span class="sig-name descname"><span class="pre">BitString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pbc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/montecarlo/bitstring.html#BitString"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Bit string for encoding a spin configuration</p>
 <dl class="py method">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/montecarlo/spin_config.html#SpinConfig.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">__weakref__</span></span></dt>
-<dd><p>list of weak references to the object (if defined)</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">montecarlo.</span></span><span class="sig-name descname"><span class="pre">SpinConfig1D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pbc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/montecarlo/spin_config.html#SpinConfig1D"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
-<dd><p>1-D spin configuration</p>
-<dl class="py method">
-<dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pbc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/montecarlo/spin_config.html#SpinConfig1D.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pbc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/montecarlo/bitstring.html#BitString.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Initialize instance</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>N</strong> (<em>int, default: 10</em>) – Number of sites</p></li>
 <li><p><strong>pbc</strong> (<em>bool, default: true</em>) – Should we use periodic boundary conditions?</p></li>
@@ -133,22 +111,28 @@
 
 <dl class="py method">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">__repr__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/montecarlo/spin_config.html#SpinConfig1D.__repr__"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<span class="sig-name descname"><span class="pre">__repr__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/montecarlo/bitstring.html#BitString.__repr__"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Return repr(self).</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">__str__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/montecarlo/spin_config.html#SpinConfig1D.__str__"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<span class="sig-name descname"><span class="pre">__str__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/montecarlo/bitstring.html#BitString.__str__"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Return str(self).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">__weakref__</span></span></dt>
+<dd><p>list of weak references to the object (if defined)</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">flip_site</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/montecarlo/spin_config.html#SpinConfig1D.flip_site"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<span class="sig-name descname"><span class="pre">flip_site</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/montecarlo/bitstring.html#BitString.flip_site"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>flip spin at site, i</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>i</strong> (<em>int</em>) – site to flip</p>
 </dd>
 </dl>
@@ -156,13 +140,13 @@
 
 <dl class="py method">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">get_magnetization</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/montecarlo/spin_config.html#SpinConfig1D.get_magnetization"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<span class="sig-name descname"><span class="pre">get_magnetization</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/montecarlo/bitstring.html#BitString.get_magnetization"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Return net magnetization of current configuration</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>m</strong> – magnetization</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>float</p>
 </dd>
 </dl>
@@ -170,13 +154,13 @@
 
 <dl class="py method">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">get_rand_config</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/montecarlo/spin_config.html#SpinConfig1D.get_rand_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<span class="sig-name descname"><span class="pre">get_rand_config</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/montecarlo/bitstring.html#BitString.get_rand_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>get random configuration</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>config</strong> – random bitstring</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>list[int]</p>
 </dd>
 </dl>
@@ -184,10 +168,10 @@
 
 <dl class="py method">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">initialize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">M</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/montecarlo/spin_config.html#SpinConfig1D.initialize"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<span class="sig-name descname"><span class="pre">initialize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">M</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/montecarlo/bitstring.html#BitString.initialize"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Initialize spin configuration with specified magnetization</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>M</strong> (<em>Int, default: 0</em>) – Total number of spin up sites</p>
 </dd>
 </dl>
@@ -195,10 +179,10 @@
 
 <dl class="py method">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">set_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conf</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/montecarlo/spin_config.html#SpinConfig1D.set_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<span class="sig-name descname"><span class="pre">set_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conf</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/montecarlo/bitstring.html#BitString.set_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>set configuration that specified from <cite>conf</cite></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>conf</strong> (<em>[int], required</em>) – list of 1/0 specifying desired spin configuration</p>
 </dd>
 </dl>
@@ -206,10 +190,10 @@
 
 <dl class="py method">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">set_int_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">int_index</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/montecarlo/spin_config.html#SpinConfig1D.set_int_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<span class="sig-name descname"><span class="pre">set_int_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">int_index</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/montecarlo/bitstring.html#BitString.set_int_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>set configuration to bitstring of <cite>int</cite></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>int_index</strong> (<em>int, required</em>) – integer whose bit representation corresponds to desired spin configuration</p>
 </dd>
 </dl>
@@ -217,7 +201,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">set_rand_config</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/montecarlo/spin_config.html#SpinConfig1D.set_rand_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<span class="sig-name descname"><span class="pre">set_rand_config</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/montecarlo/bitstring.html#BitString.set_rand_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>set configuration to a random configuration</p>
 </dd></dl>
 
@@ -225,20 +209,21 @@
 
 <dl class="py class">
 <dt class="sig sig-object py">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">montecarlo.</span></span><span class="sig-name descname"><span class="pre">IsingHamiltonian1D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">J</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mu</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pbc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/montecarlo/ising_hamiltonian.html#IsingHamiltonian1D"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
-<dd><p>Class for 1D Hamiltonian</p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">montecarlo.</span></span><span class="sig-name descname"><span class="pre">IsingHamiltonian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">J</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[[()]]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mu</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">array([0.])</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/montecarlo/ising_hamiltonian.html#IsingHamiltonian"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Class for an Ising Hamiltonian of arbitrary dimensionality</p>
 <div class="math notranslate nohighlight">
-\[H = -J\sum_{\left&lt;ij\right&gt;} \sigma_i\sigma_j + \mu\sum_i\sigma_i\]</div>
+\[H = \sum_{\left&lt;ij\right&gt;} J_{ij}\sigma_i\sigma_j + \sum_i\mu_i\sigma_i\]</div>
 <dl class="py method">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">J</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mu</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pbc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/montecarlo/ising_hamiltonian.html#IsingHamiltonian1D.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">J</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[[()]]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mu</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">array([0.])</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/montecarlo/ising_hamiltonian.html#IsingHamiltonian.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Constructor</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>J</strong> (<em>float, optional</em>) – Strength of coupling</p></li>
-<li><p><strong>mu</strong> (<em>float, optional</em>) – Chemical potential</p></li>
-<li><p><strong>pbc</strong> (<em>bool, optional, default=true</em>) – Do PBC?</p></li>
+<li><p><strong>J</strong> (<em>list of lists of tuples, optional</em>) – Strength of coupling, e.g,
+[(4, -1.1), (6, -.1)]
+[(5, -1.1), (7, -.1)]</p></li>
+<li><p><strong>mu</strong> (<em>vector, optional</em>) – local fields</p></li>
 </ul>
 </dd>
 </dl>
@@ -252,16 +237,16 @@
 
 <dl class="py method">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">compute_average_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/montecarlo/ising_hamiltonian.html#IsingHamiltonian1D.compute_average_values"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<span class="sig-name descname"><span class="pre">compute_average_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/montecarlo/ising_hamiltonian.html#IsingHamiltonian.compute_average_values"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Compute Average values exactly</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>conf</strong> (<a class="reference internal" href="autosummary/montecarlo.SpinConfig1D.html#montecarlo.SpinConfig1D" title="montecarlo.SpinConfig1D"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpinConfig1D</span></code></a>) – input configuration</p></li>
+<li><p><strong>conf</strong> (<a class="reference internal" href="autosummary/montecarlo.BitString.html#montecarlo.BitString" title="montecarlo.BitString"><code class="xref py py-class docutils literal notranslate"><span class="pre">BitString</span></code></a>) – input configuration</p></li>
 <li><p><strong>T</strong> (<em>int</em>) – Temperature</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><ul class="simple">
 <li><p><strong>E</strong> (<em>float</em>) – Energy</p></li>
 <li><p><strong>M</strong> (<em>float</em>) – Magnetization</p></li>
@@ -275,60 +260,60 @@
 
 <dl class="py method">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">delta_e_for_flip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/montecarlo/ising_hamiltonian.html#IsingHamiltonian1D.delta_e_for_flip"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<span class="sig-name descname"><span class="pre">delta_e_for_flip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/montecarlo/ising_hamiltonian.html#IsingHamiltonian.delta_e_for_flip"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Compute the energy change incurred if one were to flip the spin at site i</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>i</strong> (<em>int</em>) – Index of site to flip</p></li>
-<li><p><strong>config</strong> (<a class="reference internal" href="autosummary/montecarlo.SpinConfig1D.html#montecarlo.SpinConfig1D" title="montecarlo.SpinConfig1D"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpinConfig1D</span></code></a>) – input configuration</p></li>
+<li><p><strong>config</strong> (<a class="reference internal" href="autosummary/montecarlo.BitString.html#montecarlo.BitString" title="montecarlo.BitString"><code class="xref py py-class docutils literal notranslate"><span class="pre">BitString</span></code></a>) – input configuration</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>energy</strong> – Returns both the flipped config and the energy change</p>
 </dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>list[<a class="reference internal" href="autosummary/montecarlo.SpinConfig1D.html#montecarlo.SpinConfig1D" title="montecarlo.SpinConfig1D">SpinConfig1D</a>, float]</p>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[<a class="reference internal" href="autosummary/montecarlo.BitString.html#montecarlo.BitString" title="montecarlo.BitString">BitString</a>, float]</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">delta_e_for_flip_slow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/montecarlo/ising_hamiltonian.html#IsingHamiltonian1D.delta_e_for_flip_slow"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<span class="sig-name descname"><span class="pre">delta_e_for_flip_slow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/montecarlo/ising_hamiltonian.html#IsingHamiltonian.delta_e_for_flip_slow"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Compute the energy change incurred if one were to flip the spin at site i (slow)</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>i</strong> (<em>int</em>) – Index of site to flip</p></li>
-<li><p><strong>config</strong> (<a class="reference internal" href="autosummary/montecarlo.SpinConfig1D.html#montecarlo.SpinConfig1D" title="montecarlo.SpinConfig1D"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpinConfig1D</span></code></a>) – input configuration</p></li>
+<li><p><strong>config</strong> (<a class="reference internal" href="autosummary/montecarlo.BitString.html#montecarlo.BitString" title="montecarlo.BitString"><code class="xref py py-class docutils literal notranslate"><span class="pre">BitString</span></code></a>) – input configuration</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>energy</strong> – Returns both the flipped config and the energy change</p>
 </dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>list[<a class="reference internal" href="autosummary/montecarlo.SpinConfig1D.html#montecarlo.SpinConfig1D" title="montecarlo.SpinConfig1D">SpinConfig1D</a>, float]</p>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[<a class="reference internal" href="autosummary/montecarlo.BitString.html#montecarlo.BitString" title="montecarlo.BitString">BitString</a>, float]</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">energy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/montecarlo/ising_hamiltonian.html#IsingHamiltonian1D.energy"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<span class="sig-name descname"><span class="pre">energy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/montecarlo/ising_hamiltonian.html#IsingHamiltonian.energy"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Compute energy of configuration, <cite>config</cite></p>
 <blockquote>
 <div><div class="math notranslate nohighlight">
 \[E = \left&lt;\hat{H}\right&gt;\]</div>
 </div></blockquote>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>config</strong> (<em>SpinConfig1D</em>) – input configuration</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>config</strong> (<em>BitString</em>) – input configuration</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>energy</strong> – Energy of the input configuration</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>float</p>
 </dd>
 </dl>
@@ -336,20 +321,20 @@
 
 <dl class="py method">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">metropolis_sweep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/montecarlo/ising_hamiltonian.html#IsingHamiltonian1D.metropolis_sweep"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<span class="sig-name descname"><span class="pre">metropolis_sweep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/montecarlo/ising_hamiltonian.html#IsingHamiltonian.metropolis_sweep"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Perform a single sweep through all the sites and return updated configuration</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>conf</strong> (<a class="reference internal" href="autosummary/montecarlo.SpinConfig1D.html#montecarlo.SpinConfig1D" title="montecarlo.SpinConfig1D"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpinConfig1D</span></code></a>) – input configuration</p></li>
+<li><p><strong>conf</strong> (<a class="reference internal" href="autosummary/montecarlo.BitString.html#montecarlo.BitString" title="montecarlo.BitString"><code class="xref py py-class docutils literal notranslate"><span class="pre">BitString</span></code></a>) – input configuration</p></li>
 <li><p><strong>T</strong> (<em>int</em>) – Temperature</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>conf</strong> – Returns updated config</p>
 </dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="autosummary/montecarlo.SpinConfig1D.html#montecarlo.SpinConfig1D" title="montecarlo.SpinConfig1D"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpinConfig1D</span></code></a></p>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="autosummary/montecarlo.BitString.html#montecarlo.BitString" title="montecarlo.BitString"><code class="xref py py-class docutils literal notranslate"><span class="pre">BitString</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -363,7 +348,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="getting_started.html" class="btn btn-neutral float-left" title="Getting Started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="autosummary/montecarlo.SpinConfig1D.html" class="btn btn-neutral float-right" title="montecarlo.SpinConfig1D" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="autosummary/montecarlo.BitString.html" class="btn btn-neutral float-right" title="montecarlo.BitString" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
