@@ -3,18 +3,10 @@ from numpy.testing import assert_almost_equal
 import random
 import copy as cp
 
-class SpinConfig:
-    """
-    Base class for different types of spin configurations (i.e., 1D, 2D, etc)
-    """
-    def __init__(self):
-        print(" Why are you instantiating this?\n")
 
-
-
-class SpinConfig1D(SpinConfig):
+class BitString:
     """
-    1-D spin configuration
+    Bit string for encoding a spin configuration
     """
     def __init__(self, N=10, pbc=True):
         """
@@ -146,3 +138,12 @@ class SpinConfig1D(SpinConfig):
         assert(len(conf) == self.N)
         self.config = np.array(conf)
         
+    def x_gate(self, i):
+        self.flip_site(i)
+
+    def and_gate(self, conf):
+        out = cp.deepcopy(conf)
+        for i in range(len(self.config)):
+            out.config[i] = int(self.config[i] == 1 & conf.config[i] == 1)
+        return out
+

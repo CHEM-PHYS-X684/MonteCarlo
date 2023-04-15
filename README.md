@@ -3,14 +3,10 @@ MonteCarlo
 [//]: # (Badges)
 [![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://chem-phys-x684.github.io/MonteCarlo/)
 [![GitHub Actions Build Status](https://github.com/CHEM-PHYS-X684/montecarlo/workflows/CI/badge.svg)](https://github.com/CHEM-PHYS-X684/montecarlo/actions?query=workflow%3ACI)
-[![codecov](https://codecov.io/gh/CHEM-PHYS-X684/MonteCarlo/branch/master/graph/badge.svg)](https://codecov.io/gh/CHEM-PHYS-X684/MonteCarlo/branch/master)
-
+[![codecov](https://codecov.io/gh/CHEM-PHYS-X684/MonteCarlo/branch/main/graph/badge.svg?token=jMGsoviVV0)](https://codecov.io/gh/CHEM-PHYS-X684/MonteCarlo)
 
 # Introduction to the Monte Carlo method
 
-Start by defining the Gibbs distribution:
-$$P(\alpha) = e^{-E(\alpha)/kT}$$
-this 
 
 ### Copyright
 
