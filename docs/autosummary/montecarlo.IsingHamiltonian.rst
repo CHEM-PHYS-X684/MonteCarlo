@@ -18,6 +18,7 @@
       ~IsingHamiltonian.delta_e_for_flip
       ~IsingHamiltonian.delta_e_for_flip_slow
       ~IsingHamiltonian.energy
+      ~IsingHamiltonian.get_lowest_energy_config
       ~IsingHamiltonian.metropolis_sweep
    
    

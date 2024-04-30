@@ -267,7 +267,8 @@ class IsingHamiltonian:
                 emin = ecurr
                 xmin = b
 
-        return emin, xmin
+        bs.set_int_config(xmin)
+        return emin, bs 
 
 # if __name__ == "__main__":
 #     N=10
